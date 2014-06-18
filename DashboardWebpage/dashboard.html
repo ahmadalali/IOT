@@ -1,0 +1,198 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+
+    <title>PubCon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Users/bhavana/Desktop/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/Users/bhavana/Desktop/bootstrap/css/blog.css" rel="stylesheet">
+
+  <style type="text/css"></style><style id="holderjs-style" type="text/css"></style></head>
+
+  <body style="">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/Users/bhavana/Desktop/bootstrap/cover.html">Home</a>
+          <a class="navbar-brand" href="/Users/bhavana/Desktop/bootstrap/features.html">Features</a>
+          <a class="navbar-brand" href="#">Dashboard 101</a>
+          <a class="navbar-brand" href="https://github.com/banasrini/Test">Github</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">IOT Dashjazz</h1>
+        <p class="lead blog-description">The Realtime Internet of Things Dashboard</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <p class="blog-post-meta">June 7, 2014 by <a href="#">Bhavana</a></p>
+
+            <p>This blog shows you the functionalities and capabilities of a simple Realtime dashboard for embedded devices built using 
+            PubNub. 
+            It will take you through the steps of building a dashboard which shows the embedded devices that are online
+             and the process of sending messages to them</p>
+            <hr>
+            <p>Write something about the IOT space.</p>
+           <!-- <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote> 
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p> -->
+            <h2>Basic functionalities of the PubDash</h2>
+            <ul>
+              <li> <a href="/Users/bhavana/Desktop/bootstrap/Bidirectional_comm.html">Bidirectional Communication </a></li>
+              <li>Device Discovery</li>
+              <li>Visual Dashboard</li>
+              <li>Device Data stream</li>
+              <li>Arduino Connected to a Dashboard</li>
+              <li><a href ="/Users/bhavana/Desktop/bootstrap/pi.html">Raspberry Pi Connected to a Dashboard</a></li>
+              <li>PIC32 Connected to a Dashboard</li>
+            </ul>
+            <br></br>
+            <h3>Bidirectional Communication</h3>
+            <p>PubCon allows any embedded device to talk to another. Whether its a PIC32 or an arduino board, all you need to 
+            do is to plug and start connecting. This is composed of two components - SEND and CONNECT</p>
+            <pre><code>SEND: This invokes the publish() API to send any message over a desired 
+channel.</code></pre>
+			<pre><code>CONNECT: This invokes the subscribe() API to listen for messages from other embedded devices connected to the same channel.</code></pre>
+            
+            
+            <br></br>
+            <h3>Device Discovery</h3>
+            <p>Device Discovery helps you check which devices are online. It uses the presence() API part of the subscribe method to do this.
+            
+               </p>
+            <pre><code>PRESENCE: This invokes the publish() API to send any message over a desired 
+channel.
+
+pubnub.subscribe({
+    channel: 'button-reply',
+    message: function(m){console.log(m)},
+    presence: function(m){console.log(m)}
+})
+</code></pre>
+			<br></br>
+			
+			<h3>Visual Dashboard</h3>
+            <p>Insert image of dashboard. All the code you need to build the web page for the dashboard is below. Just copy and paste. </p>
+
+
+<pre><code>
+//The basic send “publish” functionality with sending a message
+
+pubnub.publish({
+    channel: 'button-reply',
+    presence: function(m){console.log(m)},
+    message: $('#clientText').val()   
+});</code></pre>
+
+<pre><code>
+//The basic receive “subscribe” functionality to receive messages
+
+pubnub.subscribe({
+    channel: 'my_channel',
+    message: function(m){console.log(m)}
+ });
+ </code></pre>
+            
+        
+            <br></br>
+            <h3>Device Data Stream</h3>
+            <p>YET TO WORK ON  </p>
+           
+            <br></br>
+            <h3>Devices Connected to a Dashboard</h3>
+            <p>When devices are connected to the dashboard, they get to check who else is online and who they can talk to.
+            They can also stream their information to the dashboard as seen above. </p>
+            <ul>
+            <li>Arduino Board connected to the Dashboard</li>
+            <li>Raspberry Pi connected to the Dashboard</li>
+            <li>PIC32 connected to the Dashboard</li>
+            </ul>
+            
+ 
+          </div><!-- /.blog-post -->
+
+
+
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h3>PubNub</h3>
+            <p>The PubNub Realtime Network powers thousands of apps, streaming more than 3 million messages a second to over 200 million devices a month. <p><a class="btn btn-default" href="http://www.pubnub.com" role="button">View details »</a></p></p>
+          </div>
+          <div class="sidebar-module">
+            <h3>Recent Blog Posts</h3>
+      <!--      <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol> -->
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/Users/bhavana/Desktop/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+  
+
+</body></html>

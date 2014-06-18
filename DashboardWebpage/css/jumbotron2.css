@@ -1,0 +1,28 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color:#333;
+  
+}
+
+
+
+.red{
+color:black;
+}
+.red1{
+color:black;
+}
+h2{
+color:red;
+}
+.white{
+color:white;
+}
+
+.center{
+text-align:center;
+}
