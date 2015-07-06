@@ -1,4 +1,4 @@
-from Pubnub import Pubnub
+from pubnub import Pubnub
 import string
 import time
 import random
